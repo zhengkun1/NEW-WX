@@ -8,8 +8,8 @@
 	},
 	"compileType": "weapp",
 	"libVersion": "1.5.4",
-	"appid": "wxbf8018841c139cdf",
-	"projectname": "%E7%AE%80%E5%8D%95%E4%B9%A6",
+	"appid": "touristappid",
+	"projectname": "fasdf",
 	"condition": {
 		"weapp": {
 			"current": -1,
