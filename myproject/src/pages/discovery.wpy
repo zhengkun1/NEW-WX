@@ -1,0 +1,115 @@
+<style>
+.serch {
+  height: 1rem;
+  width: 90%;
+  border: 1px solid whitesmoke;
+  border-radius: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:0.8rem;
+  /* position: fixed;
+  top: 0; */
+}
+.border {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.serchicon {
+  height: 0.8rem;
+  width: 0.8rem;
+  margin-right: 0.5rem;
+}
+.swiper {
+  display: flex;
+  width: 100%;
+  height: 10rem;
+}
+.scroll {
+  display: flex;
+  flex-direction: row;
+}
+.scrollname {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1.5rem;
+  width: 4rem;
+  border: 1px solid whitesmoke;
+  margin: 0.5rem;
+  font-size: 0.8rem;
+  position: relative;
+  color: white;
+}
+.image {
+  position: absolute;
+  top: 0;
+  height: 1.5rem;
+  width: 4rem;
+}
+
+</style>
+<template>
+  <view>
+    <view class="border">
+      <view class="serch" @tap="serch">
+        <image class="serchicon" src="{{serch}}"></image>
+        <view>搜索</view>
+      </view>
+    </view>
+    <view>
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{imgurls}}">
+          <swiper-item>
+            <image src="{{item}}" class="swiper"/>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <scroll-view scroll-x="true">
+      <view class="scroll">
+        <view wx:for="{{content}}" wx:key="index" id="{{index}}" >
+          <view class="scrollname">
+            <image class="image" src="{{item.icon}}"></image>
+            <text style="position: absolute; top: 0;">{{item.title}}</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+import content from '../untils/content.js'
+export default class Discovery extends wepy.page {
+  config = {
+    navigationBarTitleText: '我的'
+  }
+  data = {
+    serch: '../image/serch.png',
+    imgurls: [
+      'http://img.mp.sohu.com/q_mini,c_zoom,w_640/upload/20170807/8062946d81784ba983877cc098d7138d_th.jpg',
+      'http://img.mp.sohu.com/upload/20170807/f1efd36b2fe247c8ac1062c917e27cd8_th.png',
+      'http://hkpic.crntt.com/upload/201601/12/104081578.JPG'
+    ],
+    autoplay: true,
+    indicatorDots: true,
+    interval: 2000,
+    duration: 1000,
+    content: null
+  }
+  methods = {
+    serch() {
+      wepy.navigateTo({
+        url: './serch'
+      })
+    }
+  }
+  onLoad() {
+    let self = this
+    self.content = content
+    console.log(self.content)
+  }
+}
+</script>

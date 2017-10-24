@@ -1,0 +1,125 @@
+<style>
+.icon {
+  height: 2.5rem;
+  width: 2.5rem;
+  border: 1px solid whitesmoke;
+  border-radius: 50%;
+  margin: 1rem;
+}
+.nickName {
+  display: flex;
+  align-items: center;
+}
+.grayline {
+  border-bottom: 1px solid whitesmoke;
+}
+.article {
+  display: flex;
+  margin: 0.5rem;
+}
+.attention {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1
+}
+.grayblank {
+  height: 1rem;
+  width: 100%;
+  border-bottom: 1px solid whitesmoke;
+  background-color: gray
+}
+.src {
+  height: 1rem;
+  width: 1rem;
+  margin: 0.3rem;
+}
+</style>
+<template>
+<view>
+  <view class="grayblank"></view>
+  <view class="nickName">
+    <image class="icon" src="{{icon}}"></image>
+    <view>{{nickName}}</view>
+  </view>
+  <view class="grayline"></view>
+  <view class="article">
+    <view class="attention">
+      <view style="font-size:1.5rem">0</view>
+      <view>公开文章</view>
+    </view>
+    <view class="attention">
+      <view style="font-size:1.5rem">0</view>
+      <view>关注</view>
+    </view>
+    <view class="attention">
+      <view style="font-size:1.5rem">0</view>
+      <view>粉丝</view>
+    </view>
+  </view>
+  <view class="grayblank"></view>
+  <view style="display: flex; margin: 0.5rem">
+    <image class="src" src="{{secret}}"></image>
+    <view>私密文章</view>
+  </view>
+  <view class="grayline"></view>
+  <view style="display: flex; margin: 0.5rem">
+    <image class="src" src="{{collect}}"></image>
+    <view>收藏的文章</view>
+  </view>
+  <view class="grayline"></view>
+  <view style="display: flex; margin: 0.5rem">
+    <image class="src" src="{{like}}"></image>
+    <view>喜欢的文章</view>
+  </view>
+  <view class="grayline"></view>
+  <view style="display: flex; margin: 0.5rem">
+    <image class="src" src="{{mysubject}}"></image>
+    <view>我的专题</view>
+  </view>
+  <view class="grayline"></view>
+  <view style="display: flex; margin: 0.5rem">
+    <image class="src" src="{{myarctile}}"></image>
+    <view>我的文集</view>
+  </view>
+  <view class="grayblank"></view>
+  <view style="display: flex; margin: 0.5rem">
+    <image class="src" src="{{record}}"></image>
+    <view>浏览记录</view>
+  </view>
+  <!-- <view style="display: flex; margin: 0.5rem">
+    <image class="src" src="{{dayandnight}}"></image>
+    <view>夜间模式</view>
+  </view> -->
+</view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class Self extends wepy.page {
+  config = {
+    navigationBarTitleText: '我的'
+  }
+  data = {
+    secret: '../image/secret.png',
+    mysubject: '../image/mysubject.png',
+    record: '../image/record.png',
+    like: '../image/like.png',
+    collect: '../image/collect.png',
+    dayandnight: '../image/dayandnight.png',
+    myarctile: '../image/myarctile.png',
+    icon: '',
+    nickName: ''
+  }
+  onLoad() {
+  }
+  onShow() {
+    let self = this
+    try {
+      self.icon = wepy.getStorageSync('avatarUrl')
+      self.nickName = wepy.getStorageSync('nickName')
+    } catch (e) {
+    }
+  }
+}
+</script>

@@ -1,0 +1,51 @@
+
+.serch {
+  height: 1rem;
+  width: 90%;
+  border: 1px solid whitesmoke;
+  border-radius: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:0.8rem;
+  /* position: fixed;
+  top: 0; */
+}
+.border {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.serchicon {
+  height: 0.8rem;
+  width: 0.8rem;
+  margin-right: 0.5rem;
+}
+.swiper {
+  display: flex;
+  width: 100%;
+  height: 10rem;
+}
+.scroll {
+  display: flex;
+  flex-direction: row;
+}
+.scrollname {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1.5rem;
+  width: 4rem;
+  border: 1px solid whitesmoke;
+  margin: 0.5rem;
+  font-size: 0.8rem;
+  position: relative;
+  color: white;
+}
+.image {
+  position: absolute;
+  top: 0;
+  height: 1.5rem;
+  width: 4rem;
+}
+

@@ -1,0 +1,68 @@
+<style>
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 15rem;
+  width: 100%;
+}
+.icon{
+  height: 3rem;
+  width: 3rem;
+  border: 1px solid whitesmoke;
+  border-radius: 50%;
+  margin: 1rem;
+}
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  width: 10rem;
+  background-color: greenyellow;
+}
+</style>
+<template>
+  <view>
+    <view class="login">
+      <image class="icon" src="{{icon}}"></image>
+      <view>{{nickName}}</view>
+    </view>
+    <button class="button" @tap="login">微信授权登录</button>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class Login extends wepy.page {
+  config = {
+    navigationBarTitleText: '登录'
+  }
+  data = {
+    icon: '',
+    nickName: ''
+  }
+  methods = {
+    login() {
+      let self = this
+      try {
+        wepy.setStorageSync('avatarUrl', self.icon)
+        wepy.setStorageSync('nickName', self.nickName)
+      } catch (e) {
+      }
+      wepy.switchTab({
+        url: './discovery'
+      })
+    }
+  }
+  onLoad() {
+    let self = this
+    wepy.getUserInfo({
+      success: function(res) {
+        self.icon = res.userInfo.avatarUrl
+        self.nickName = res.userInfo.nickName
+      }
+    })
+  }
+}
+</script>

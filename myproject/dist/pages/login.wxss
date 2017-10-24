@@ -1,0 +1,24 @@
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 15rem;
+  width: 100%;
+}
+.icon{
+  height: 3rem;
+  width: 3rem;
+  border: 1px solid whitesmoke;
+  border-radius: 50%;
+  margin: 1rem;
+}
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  width: 10rem;
+  background-color: greenyellow;
+}

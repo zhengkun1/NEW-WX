@@ -1,0 +1,8 @@
+
+  <view>
+    <view class="login">
+      <image class="icon" src="{{icon}}"/>
+      <view>{{nickName}}</view>
+    </view>
+    <button class="button" bindtap="login">微信授权登录</button>
+  </view>

@@ -1,0 +1,57 @@
+
+<view>
+  <view class="grayblank"/>
+  <view class="nickName">
+    <image class="icon" src="{{icon}}"/>
+    <view>{{nickName}}</view>
+  </view>
+  <view class="grayline"/>
+  <view class="article">
+    <view class="attention">
+      <view style="font-size:1.5rem">0</view>
+      <view>公开文章</view>
+    </view>
+    <view class="attention">
+      <view style="font-size:1.5rem">0</view>
+      <view>关注</view>
+    </view>
+    <view class="attention">
+      <view style="font-size:1.5rem">0</view>
+      <view>粉丝</view>
+    </view>
+  </view>
+  <view class="grayblank"/>
+  <view style="display: flex; margin: 0.5rem">
+    <image class="src" src="{{secret}}"/>
+    <view>私密文章</view>
+  </view>
+  <view class="grayline"/>
+  <view style="display: flex; margin: 0.5rem">
+    <image class="src" src="{{collect}}"/>
+    <view>收藏的文章</view>
+  </view>
+  <view class="grayline"/>
+  <view style="display: flex; margin: 0.5rem">
+    <image class="src" src="{{like}}"/>
+    <view>喜欢的文章</view>
+  </view>
+  <view class="grayline"/>
+  <view style="display: flex; margin: 0.5rem">
+    <image class="src" src="{{mysubject}}"/>
+    <view>我的专题</view>
+  </view>
+  <view class="grayline"/>
+  <view style="display: flex; margin: 0.5rem">
+    <image class="src" src="{{myarctile}}"/>
+    <view>我的文集</view>
+  </view>
+  <view class="grayblank"/>
+  <view style="display: flex; margin: 0.5rem">
+    <image class="src" src="{{record}}"/>
+    <view>浏览记录</view>
+  </view>
+  <!-- <view style="display: flex; margin: 0.5rem">
+    <image class="src" src="{{dayandnight}}"></image>
+    <view>夜间模式</view>
+  </view> -->
+</view>

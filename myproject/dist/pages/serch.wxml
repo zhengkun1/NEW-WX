@@ -1,0 +1,8 @@
+
+<view>
+  <view style="display: flex; justify-content: center;">
+    <view class="serchborder">
+      <input placeholder="搜索" auto-focus/>
+    </view>
+  </view>
+</view>
