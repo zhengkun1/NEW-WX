@@ -1,22 +1,34 @@
 'use strict';
 
 module.exports = [{
-  icon: '../image/article.png',
-  title: '小说精选'
-}, {
-  icon: '../image/IT.jpg',
-  title: 'IT/互联网'
-}, {
   icon: '../image/real.jpg',
-  title: '真实故事'
-}, {
-  icon: '../image/history.jpg',
-  title: '世界历史'
-}, {
-  icon: '../image/todayhot.jpg',
-  title: '今日热门'
+  title: '小说精选',
+  usericon: '../image/add.png',
+  username: 'aaa'
 }, {
   icon: '../image/new.jpg',
-  title: '新上榜'
+  title: 'IT/互联网',
+  usericon: '../image/add.png',
+  username: 'aaa'
+}, {
+  icon: '../image/todayhot.jpg',
+  title: '真实故事',
+  usericon: '../image/add.png',
+  username: 'aaa'
+}, {
+  icon: '../image/real.jpg',
+  title: '世界历史',
+  usericon: '../image/add.png',
+  username: 'aaa'
+}, {
+  icon: '../image/todayhot.jpg',
+  title: '今日热门',
+  usericon: '../image/add.png',
+  username: 'aaa'
+}, {
+  icon: '../image/new.jpg',
+  title: '新上榜',
+  usericon: '../image/add.png',
+  username: 'aaa'
 }];
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbnRlbnQuanMiXSwibmFtZXMiOlsibW9kdWxlIiwiZXhwb3J0cyIsImljb24iLCJ0aXRsZSJdLCJtYXBwaW5ncyI6Ijs7QUFBQUEsT0FBT0MsT0FBUCxHQUFpQixDQUNmO0FBQ0VDLFFBQU0sc0JBRFI7QUFFRUMsU0FBTztBQUZULENBRGUsRUFJWjtBQUNERCxRQUFNLGlCQURMO0FBRURDLFNBQU87QUFGTixDQUpZLEVBT1o7QUFDREQsUUFBTSxtQkFETDtBQUVEQyxTQUFPO0FBRk4sQ0FQWSxFQVVaO0FBQ0RELFFBQU0sc0JBREw7QUFFREMsU0FBTztBQUZOLENBVlksRUFhWjtBQUNERCxRQUFNLHVCQURMO0FBRURDLFNBQU87QUFGTixDQWJZLEVBZ0JaO0FBQ0RELFFBQU0sa0JBREw7QUFFREMsU0FBTztBQUZOLENBaEJZLENBQWpCIiwiZmlsZSI6ImNvbnRlbnQuanMiLCJzb3VyY2VzQ29udGVudCI6WyJtb2R1bGUuZXhwb3J0cyA9IFtcbiAge1xuICAgIGljb246ICcuLi9pbWFnZS9hcnRpY2xlLnBuZycsXG4gICAgdGl0bGU6ICflsI/or7Tnsr7pgIknXG4gIH0sIHtcbiAgICBpY29uOiAnLi4vaW1hZ2UvSVQuanBnJyxcbiAgICB0aXRsZTogJ0lUL+S6kuiBlOe9kSdcbiAgfSwge1xuICAgIGljb246ICcuLi9pbWFnZS9yZWFsLmpwZycsXG4gICAgdGl0bGU6ICfnnJ/lrp7mlYXkuosnXG4gIH0sIHtcbiAgICBpY29uOiAnLi4vaW1hZ2UvaGlzdG9yeS5qcGcnLFxuICAgIHRpdGxlOiAn5LiW55WM5Y6G5Y+yJ1xuICB9LCB7XG4gICAgaWNvbjogJy4uL2ltYWdlL3RvZGF5aG90LmpwZycsXG4gICAgdGl0bGU6ICfku4rml6Xng63pl6gnXG4gIH0sIHtcbiAgICBpY29uOiAnLi4vaW1hZ2UvbmV3LmpwZycsXG4gICAgdGl0bGU6ICfmlrDkuIrmppwnXG4gIH1cbl1cbiJdfQ==
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbnRlbnQuanMiXSwibmFtZXMiOlsibW9kdWxlIiwiZXhwb3J0cyIsImljb24iLCJ0aXRsZSIsInVzZXJpY29uIiwidXNlcm5hbWUiXSwibWFwcGluZ3MiOiI7O0FBQUFBLE9BQU9DLE9BQVAsR0FBaUIsQ0FDZjtBQUNFQyxRQUFNLG1CQURSO0FBRUVDLFNBQU8sTUFGVDtBQUdFQyxZQUFVLGtCQUhaO0FBSUVDLFlBQVU7QUFKWixDQURlLEVBTVo7QUFDREgsUUFBTSxrQkFETDtBQUVEQyxTQUFPLFFBRk47QUFHREMsWUFBVSxrQkFIVDtBQUlEQyxZQUFVO0FBSlQsQ0FOWSxFQVdaO0FBQ0RILFFBQU0sdUJBREw7QUFFREMsU0FBTyxNQUZOO0FBR0RDLFlBQVUsa0JBSFQ7QUFJREMsWUFBVTtBQUpULENBWFksRUFnQlo7QUFDREgsUUFBTSxtQkFETDtBQUVEQyxTQUFPLE1BRk47QUFHREMsWUFBVSxrQkFIVDtBQUlEQyxZQUFVO0FBSlQsQ0FoQlksRUFxQlo7QUFDREgsUUFBTSx1QkFETDtBQUVEQyxTQUFPLE1BRk47QUFHREMsWUFBVSxrQkFIVDtBQUlEQyxZQUFVO0FBSlQsQ0FyQlksRUEwQlo7QUFDREgsUUFBTSxrQkFETDtBQUVEQyxTQUFPLEtBRk47QUFHREMsWUFBVSxrQkFIVDtBQUlEQyxZQUFVO0FBSlQsQ0ExQlksQ0FBakIiLCJmaWxlIjoiY29udGVudC5qcyIsInNvdXJjZXNDb250ZW50IjpbIm1vZHVsZS5leHBvcnRzID0gW1xuICB7XG4gICAgaWNvbjogJy4uL2ltYWdlL3JlYWwuanBnJyxcbiAgICB0aXRsZTogJ+Wwj+ivtOeyvumAiScsXG4gICAgdXNlcmljb246ICcuLi9pbWFnZS9hZGQucG5nJyxcbiAgICB1c2VybmFtZTogJ2FhYSdcbiAgfSwge1xuICAgIGljb246ICcuLi9pbWFnZS9uZXcuanBnJyxcbiAgICB0aXRsZTogJ0lUL+S6kuiBlOe9kScsXG4gICAgdXNlcmljb246ICcuLi9pbWFnZS9hZGQucG5nJyxcbiAgICB1c2VybmFtZTogJ2FhYSdcbiAgfSwge1xuICAgIGljb246ICcuLi9pbWFnZS90b2RheWhvdC5qcGcnLFxuICAgIHRpdGxlOiAn55yf5a6e5pWF5LqLJyxcbiAgICB1c2VyaWNvbjogJy4uL2ltYWdlL2FkZC5wbmcnLFxuICAgIHVzZXJuYW1lOiAnYWFhJ1xuICB9LCB7XG4gICAgaWNvbjogJy4uL2ltYWdlL3JlYWwuanBnJyxcbiAgICB0aXRsZTogJ+S4lueVjOWOhuWPsicsXG4gICAgdXNlcmljb246ICcuLi9pbWFnZS9hZGQucG5nJyxcbiAgICB1c2VybmFtZTogJ2FhYSdcbiAgfSwge1xuICAgIGljb246ICcuLi9pbWFnZS90b2RheWhvdC5qcGcnLFxuICAgIHRpdGxlOiAn5LuK5pel54Ot6ZeoJyxcbiAgICB1c2VyaWNvbjogJy4uL2ltYWdlL2FkZC5wbmcnLFxuICAgIHVzZXJuYW1lOiAnYWFhJ1xuICB9LCB7XG4gICAgaWNvbjogJy4uL2ltYWdlL25ldy5qcGcnLFxuICAgIHRpdGxlOiAn5paw5LiK5qacJyxcbiAgICB1c2VyaWNvbjogJy4uL2ltYWdlL2FkZC5wbmcnLFxuICAgIHVzZXJuYW1lOiAnYWFhJ1xuICB9XG5dXG4iXX0=

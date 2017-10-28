@@ -1,0 +1,13 @@
+
+  <view>
+    <view class="attention">
+      <image class="icon" src="{{icon}}"/>
+      <view style="width: 70%;">
+        <view class="username">uername</view>
+        <view class="writed">写了78992字，获得10W个喜欢</view>
+      </view>
+      <view class="haveattention">
+        <view class="attacted">关注</view>
+      </view>
+    </view>
+  </view>

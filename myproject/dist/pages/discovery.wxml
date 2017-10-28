@@ -1,14 +1,8 @@
 
   <view>
-    <view class="border">
-      <view class="serch" bindtap="serch">
-        <image class="serchicon" src="{{serch}}"/>
-        <view>搜索</view>
-      </view>
-    </view>
     <view>
-      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-        <block  wx:for="{{imgurls}}">
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true">
+        <block  wx:for="{{imgurls}}" wx:key="{{index}}">
           <swiper-item>
             <image src="{{item}}" class="swiper"/>
           </swiper-item>
@@ -17,7 +11,7 @@
     </view>
     <scroll-view scroll-x="true">
       <view class="scroll">
-        <view  wx:for="{{content}}" wx:key="index" id="{{index}}">
+        <view  wx:for="{{content}}" wx:key="index" id="{{index}}" bindtap="select">
           <view class="scrollname">
             <image class="image" src="{{item.icon}}"/>
             <text style="position: absolute; top: 0;">{{item.title}}</text>
@@ -25,4 +19,31 @@
         </view>
       </view>
     </scroll-view>
+    <view class="grayline" bindtap="content">
+      <view class="userinfo">
+        <image class="usericon" src="{{icon}}"/>
+        <view class="username">10K</view>
+      </view>
+      <view style="display: flex;">
+        <view class="content">
+          <view class="title">时间告诉你，毕业一年后，真的有比一纸文凭更重要的东西</view>
+          <view class="article">01 在我小的时候，熬夜还是一件不常见事情。那个时候身边的人的作息都十分有规律，有没有蓄意教唆人，在还不起钱的时候去像亲人朋友借钱。</view>
+        </view>
+        <image class="pic" src="{{pic}}"/>
+      </view>
+      <view>
+        <view class="like">
+          <image class="comment" src="{{like}}"/>
+          <view style="margin-right: 0.5rem">1.5W</view>
+          <image class="comment" src="{{comment}}"/>
+          <view>10W</view>
+        </view>
+      </view>
+    </view>
+    <view class="border">
+      <view class="serch" bindtap="serch">
+        <image class="serchicon" src="{{serch}}"/>
+        <view>搜索</view>
+      </view>
+    </view>
   </view>

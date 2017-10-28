@@ -1,0 +1,13 @@
+
+.addtitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px dotted black
+}
+.fabu {
+  display: flex;
+  flex-direction: row-reverse;
+  color:brown;
+  font-size: 1rem;
+}

@@ -9,3 +9,13 @@
   font-size: 0.8rem;
   align-items: center;
 }
+.serch {
+  height: 1.2rem;
+  width: 3rem;
+  font-size: 0.6rem;
+}
+.reset {
+  height: 1rem;
+  width: 1rem;
+  border-radius:50%
+}

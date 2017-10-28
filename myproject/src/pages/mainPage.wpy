@@ -2,7 +2,7 @@
 
 </style>
 <template>
-  
+
 </template>
 <script>
 import wepy from 'wepy'

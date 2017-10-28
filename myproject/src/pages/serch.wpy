@@ -9,18 +9,49 @@
   font-size: 0.8rem;
   align-items: center;
 }
+.serch {
+  height: 1.2rem;
+  width: 3rem;
+  font-size: 0.6rem;
+}
+.reset {
+  height: 1rem;
+  width: 1rem;
+  border-radius:50%
+}
 </style>
 <template>
 <view>
-  <view style="display: flex; justify-content: center;">
-    <view class="serchborder">
-      <input placeholder="搜索" auto-focus/>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view style="display: flex; justify-content: center;">
+      <view class="serchborder">
+        <input placeholder="搜索" auto-focus name="input"/>
+      </view>
+      <!-- <button formType="reset" class="reset"></button> -->
+      <button formType="submit" class="serch">搜索</button>
     </view>
-  </view>
+  </form>
 </view>
 
 </template>
 <script>
-export default {
+import wepy from 'wepy'
+export default class Serch extends wepy.page {
+  config = {
+    navigationBarTitleText: '搜索'
+  }
+  data = {
+  }
+  methods = {
+    formSubmit(e) {
+      console.log('form发生了submit事件，携带数据为：', e.detail.value)
+      console.log(e.detail)
+    },
+    formReset() {
+      console.log('form发生了reset事件')
+    }
+  }
+  onLoad() {
+  }
 }
 </script>

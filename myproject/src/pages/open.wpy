@@ -1,0 +1,63 @@
+<style>
+.add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid black
+}
+.addicon {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin: 0.5rem 0rem;
+}
+.content {
+  margin-left: 0.5rem;
+  border-bottom: 1px solid whitesmoke;
+}
+.date {
+  margin: 0.5rem 0rem;
+  font-size: 0.5rem;
+  color: #888888;
+  margin-right: 0.5rem;
+}
+.title {
+  font-size: 1rem;
+}
+.like {
+  display: flex;
+
+}
+</style>
+<template>
+  <view>
+    <view class="add">
+      <image class="addicon" src="{{add}}" @tap="addarticle"/>
+    </view>
+    <view class="content">
+      <view class="date">2017-10-27 15:13</view>
+      <view class="title">时间告诉你，毕业后，真的有比一直文凭更重要的东西</view>
+      <view class="like">
+        <view class="date">评论0</view>
+        <view class="date">喜欢0</view>
+      </view>
+    </view>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class Open extends wepy.page {
+  config = {
+    navigationBarTitleText: '公开文章'
+  }
+  data = {
+    add: '../image/add.png'
+  }
+  methods = {
+    addarticle() {
+      wepy.navigateTo({
+        url: './add'
+      })
+    }
+  }
+}
+</script>

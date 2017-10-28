@@ -8,13 +8,16 @@
   justify-content: center;
   align-items: center;
   font-size:0.8rem;
-  /* position: fixed;
-  top: 0; */
+  background-color: white
 }
 .border {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
 }
 .serchicon {
   height: 0.8rem;
@@ -22,6 +25,7 @@
   margin-right: 0.5rem;
 }
 .swiper {
+  margin-top: 1rem;
   display: flex;
   width: 100%;
   height: 10rem;
@@ -48,19 +52,71 @@
   height: 1.5rem;
   width: 4rem;
 }
+.usericon {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin: 0.5rem;
+}
+.userinfo {
+  display: flex;
+  flex-direction: row;
+}
+.username {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pic {
+  height: 5rem;
+  width: 5rem;
+  margin-right: 0.5rem;
+  flex: 1
+}
+.content {
+  margin: 0.5rem;
+  flex: 3.5
+}
+.grayline {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid whitesmoke;
+}
+.title {
+  font-size: 1rem;
+}
+.article {
+  font-size: 0.6rem;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  color: #888888
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.like {
+  display: flex;
+  align-items: center;
+  font-size: 0.5rem;
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem
+}
+.comment {
+  height:0.8rem;
+  width: 0.8rem
+}
 
 </style>
 <template>
   <view>
-    <view class="border">
-      <view class="serch" @tap="serch">
-        <image class="serchicon" src="{{serch}}"></image>
-        <view>搜索</view>
-      </view>
-    </view>
     <view>
-      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-        <block wx:for="{{imgurls}}">
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true">
+        <block wx:for="{{imgurls}}" wx:key="{{index}}">
           <swiper-item>
             <image src="{{item}}" class="swiper"/>
           </swiper-item>
@@ -69,7 +125,7 @@
     </view>
     <scroll-view scroll-x="true">
       <view class="scroll">
-        <view wx:for="{{content}}" wx:key="index" id="{{index}}" >
+        <view wx:for="{{content}}" wx:key="index" id="{{index}}" @tap="select">
           <view class="scrollname">
             <image class="image" src="{{item.icon}}"></image>
             <text style="position: absolute; top: 0;">{{item.title}}</text>
@@ -77,6 +133,33 @@
         </view>
       </view>
     </scroll-view>
+    <view class="grayline" @tap="content">
+      <view class="userinfo">
+        <image class="usericon" src="{{icon}}"/>
+        <view class="username">10K</view>
+      </view>
+      <view style="display: flex;">
+        <view class="content">
+          <view class="title">时间告诉你，毕业一年后，真的有比一纸文凭更重要的东西</view>
+          <view class="article">01 在我小的时候，熬夜还是一件不常见事情。那个时候身边的人的作息都十分有规律，有没有蓄意教唆人，在还不起钱的时候去像亲人朋友借钱。</view>
+        </view>
+        <image class="pic" src="{{pic}}"/>
+      </view>
+      <view>
+        <view class="like">
+          <image class="comment" src="{{like}}"/>
+          <view style="margin-right: 0.5rem">1.5W</view>
+          <image class="comment" src="{{comment}}"/>
+          <view>10W</view>
+        </view>
+      </view>
+    </view>
+    <view class="border">
+      <view class="serch" @tap="serch">
+        <image class="serchicon" src="{{serch}}"></image>
+        <view>搜索</view>
+      </view>
+    </view>
   </view>
 </template>
 <script>
@@ -89,20 +172,36 @@ export default class Discovery extends wepy.page {
   data = {
     serch: '../image/serch.png',
     imgurls: [
-      'http://img.mp.sohu.com/q_mini,c_zoom,w_640/upload/20170807/8062946d81784ba983877cc098d7138d_th.jpg',
-      'http://img.mp.sohu.com/upload/20170807/f1efd36b2fe247c8ac1062c917e27cd8_th.png',
-      'http://hkpic.crntt.com/upload/201601/12/104081578.JPG'
+      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508931424422&di=7dd090909c854f8f2108d68f92f653a4&imgtype=jpg&src=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D2417605145%2C1069626077%26fm%3D214%26gp%3D0.jpg',
+      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508931506103&di=41dd42e85323e95cf95b63f5d411498b&imgtype=0&src=http%3A%2F%2Fatt2.citysbs.com%2Fhangzhou%2F2015%2F06%2F22%2F20%2F4563x3032-205108_v2_19711434977468459_8b1257d65bdb5fa39090ec07cffe8434.jpg',
+      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508931576237&di=e7c7b4e17f4f3862c91851642f9ff1b4&imgtype=0&src=http%3A%2F%2Fi.dimg.cc%2F7e%2F17%2F06%2Ffd%2F0a%2F3c%2Fc4%2Fb4%2F94%2F9b%2F24%2F3e%2Fd1%2F3e%2Fab%2F0e.jpg'
     ],
     autoplay: true,
     indicatorDots: true,
     interval: 2000,
     duration: 1000,
-    content: null
+    content: null,
+    icon: '../image/add.png',
+    pic: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508994773906&di=00b92ac2b264a4e6d0443e9083a2e1c1&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F00e93901213fb80e8da22b173fd12f2eb83894fb.jpg',
+    comment: '../image/comment2.png',
+    like: '../image/like2.png'
   }
   methods = {
     serch() {
       wepy.navigateTo({
         url: './serch'
+      })
+    },
+    content() {
+      wepy.navigateTo({
+        url: './content'
+      })
+    },
+    select(e) {
+      let self = this
+      let item = self.content[e.currentTarget.id]
+      wepy.navigateTo({
+        url: `./select?usericon=${item.usericon}&username=${item.username}`
       })
     }
   }

@@ -1,8 +1,12 @@
 
 <view>
-  <view style="display: flex; justify-content: center;">
-    <view class="serchborder">
-      <input placeholder="搜索" auto-focus/>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view style="display: flex; justify-content: center;">
+      <view class="serchborder">
+        <input placeholder="搜索" auto-focus name="input"/>
+      </view>
+      <!-- <button formType="reset" class="reset"></button> -->
+      <button formType="submit" class="serch">搜索</button>
     </view>
-  </view>
+  </form>
 </view>

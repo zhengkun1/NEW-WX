@@ -1,0 +1,65 @@
+<style>
+.icon {
+  color: blue;
+  font-size: 0.6rem;
+  margin-right: 0.5rem;
+}
+.date {
+  font-size: 0.6rem;
+  color: #888888;
+}
+.content {
+  width: 65%;
+  margin: 0.5rem;
+}
+.read {
+  display: flex;
+  font-size: 0.5rem;
+  color: #888888;
+}
+.conmment {
+  margin-right: 0.3rem;
+}
+.pic {
+  height: 5rem;
+  width: 5rem;
+}
+.grayline {
+  display: flex;
+  border-bottom: 1px solid whitesmoke
+}
+</style>
+<template>
+<view>
+  <view class="grayline">
+    <view class="content">
+      <view style="display: flex;">
+        <view class="icon">10K</view>
+        <view class="date">10.27   06.18</view>
+      </view>
+      <view>你们很年轻，你们需要知道这些事</view>
+      <view class="read">
+        <view class="conmment">阅读4434</view>
+        <view class="conmment">评论92</view>
+        <view class="conmment">喜欢351</view>
+        <view>赞赏2</view>
+      </view>
+    </view>
+    <view>
+      <image class="pic" src="{{pic}}"/>
+    </view>
+  </view>
+</view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class Like extends wepy.page {
+  config = {
+    navigationBarTitleText: '喜欢的文章'
+  }
+  data = {
+    icon: '../image/article.png',
+    pic: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508994773906&di=00b92ac2b264a4e6d0443e9083a2e1c1&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F00e93901213fb80e8da22b173fd12f2eb83894fb.jpg'
+  }
+}
+</script>

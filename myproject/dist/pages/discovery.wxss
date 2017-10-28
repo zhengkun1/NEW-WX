@@ -8,13 +8,16 @@
   justify-content: center;
   align-items: center;
   font-size:0.8rem;
-  /* position: fixed;
-  top: 0; */
+  background-color: white
 }
 .border {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
 }
 .serchicon {
   height: 0.8rem;
@@ -22,6 +25,7 @@
   margin-right: 0.5rem;
 }
 .swiper {
+  margin-top: 1rem;
   display: flex;
   width: 100%;
   height: 10rem;
@@ -47,5 +51,63 @@
   top: 0;
   height: 1.5rem;
   width: 4rem;
+}
+.usericon {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin: 0.5rem;
+}
+.userinfo {
+  display: flex;
+  flex-direction: row;
+}
+.username {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pic {
+  height: 5rem;
+  width: 5rem;
+  margin-right: 0.5rem;
+  flex: 1
+}
+.content {
+  margin: 0.5rem;
+  flex: 3.5
+}
+.grayline {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid whitesmoke;
+}
+.title {
+  font-size: 1rem;
+}
+.article {
+  font-size: 0.6rem;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  color: #888888
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.like {
+  display: flex;
+  align-items: center;
+  font-size: 0.5rem;
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem
+}
+.comment {
+  height:0.8rem;
+  width: 0.8rem
 }
 

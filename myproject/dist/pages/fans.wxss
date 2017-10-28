@@ -1,0 +1,40 @@
+
+.attention {
+  display: flex;
+  margin: 0.5rem;
+  border-bottom: 1px solid whitesmoke
+}
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  border: 1px solid white;
+  border-radius: 50%
+}
+.username {
+  width: 60%;
+  font-size: 1rem;
+}
+.writed {
+  font-size: 0.5rem;
+  color: #888888;
+}
+.haveattention {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  width: 3rem;
+}
+.attacted {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1rem;
+  width: 2.5rem;
+  font-size: 0.8rem;
+  border: 1px solid black;
+}

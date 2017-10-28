@@ -20,7 +20,19 @@ export default class extends wepy.app {
       'pages/discovery',
       'pages/mainPage',
       'pages/self',
-      'pages/serch'
+      'pages/serch',
+      'pages/add',
+      'pages/content',
+      'pages/attention',
+      'pages/collect',
+      'pages/fans',
+      'pages/like',
+      'pages/mine',
+      'pages/myarticle',
+      'pages/open',
+      'pages/record',
+      'pages/secret',
+      'pages/select'
     ],
     window: {
       backgroundTextStyle: 'light',

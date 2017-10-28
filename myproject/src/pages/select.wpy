@@ -1,0 +1,26 @@
+<style>
+
+</style>
+<template>
+<view>
+  <view>{{username}}</view>
+  <image src="{{usericon}}"/>
+</view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class Select extends wepy.page {
+  config = {
+  }
+  data = {
+    username: '',
+    usericon: ''
+
+  }
+  onLoad(data) {
+    let self = this
+    self.usericon = data.usericon
+    self.username = data.username
+  }
+}
+</script>

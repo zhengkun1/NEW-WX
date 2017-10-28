@@ -1,0 +1,21 @@
+
+<view>
+  <view class="grayline">
+    <view class="content">
+      <view style="display: flex;">
+        <view class="icon">10K</view>
+        <view class="date">10.27   06.18</view>
+      </view>
+      <view>你们很年轻，你们需要知道这些事</view>
+      <view class="read">
+        <view class="conmment">阅读4434</view>
+        <view class="conmment">评论92</view>
+        <view class="conmment">喜欢351</view>
+        <view>赞赏2</view>
+      </view>
+    </view>
+    <view>
+      <image class="pic" src="{{pic}}"/>
+    </view>
+  </view>
+</view>

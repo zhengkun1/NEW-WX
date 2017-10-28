@@ -1,0 +1,35 @@
+<style>
+.addtitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px dotted black
+}
+.fabu {
+  display: flex;
+  flex-direction: row-reverse;
+  color:brown;
+  font-size: 1rem;
+}
+</style>
+<template>
+  <view>
+    <view class="piblish">
+      <view class="fabu">发布</view>
+    </view>
+    <view class="addtitle">
+      <input placeholder="添加标题"/>
+    </view>
+    <view>
+      <input placeholder="正文内容"/>
+    </view>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class Attention extends wepy.page {
+  config = {
+    navigationBarTitleText: '写文章'
+  }
+}
+</script>

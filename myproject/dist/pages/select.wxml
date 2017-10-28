@@ -1,0 +1,5 @@
+
+<view>
+  <view>{{username}}</view>
+  <image src="{{usericon}}"/>
+</view>
