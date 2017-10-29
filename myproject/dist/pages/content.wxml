@@ -1,10 +1,10 @@
 
 <view>
-  <view class="title">title</view>
+  <view class="title">{{title}}</view>
   <view class="userinfo">
     <view class="icon">
-      <image class="usericon" src="{{icon}}"/>
-      <view class="username">username</view>
+      <image class="usericon" src="{{avatarUrl}}"/>
+      <view class="username">{{nickName}}</view>
     </view>
     <view>
       <view class="attention" bindtap="attention">{{a}}</view>
@@ -12,6 +12,8 @@
       <view class="attention"  wx:else/>
     </view>
   </view>
+  <view>{{content}}</view>
+  <view class="commentarea">评论区</view>
   <view>
     <view wx:for="{{value}}" wx:key="index" class="grayline">
       <view style="display: flex;">
@@ -25,16 +27,18 @@
             <view>2017-10-28</view>
           </view>
         </view>
-        <image class="likethis" src="{{likethis}}"/>
+        <view style="height: 2rem; width: 2rem; display: flex; justify-content: centet; align-items: center;">
+          <image class="likethis" src="{{likethis}}"/>
+        </view>
       </view>
       <view>
-        <view style="margin-bottom: 0.5rem;">{{item.value.input}}</view>
+        <view style="margin-bottom: 0.5rem; font-size: 0.8rem">{{item.value.input}}</view>
       </view>
     </view>
   </view>
   <view class="collect">
-    <form bindsubmit="formSubmit">
-      <input class="input" placeholder="写下你的评论" name="input"/>
+    <form bindsubmit="formSubmit" style="display: flex; flex-direction: row">
+      <input value="{{input}}" confirm-type="{{confirmtype}}" class="input" placeholder="写下你的评论" name="input"/>
       <button class="button" formType="submit">发送</button>
     </form>
     <image class="comment" src="{{comment}}"/>

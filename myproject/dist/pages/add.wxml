@@ -1,12 +1,14 @@
 
   <view>
-    <view class="piblish">
-      <view class="fabu">发布</view>
-    </view>
-    <view class="addtitle">
-      <input placeholder="添加标题"/>
-    </view>
-    <view>
-      <input placeholder="正文内容"/>
-    </view>
+    <form bindsubmit="formSubmit">
+      <view class="piblish">
+        <button class="fabu" type="primary" formType="submit">发布</button>
+      </view>
+      <view class="addtitle">
+        <input placeholder="添加标题" name="title"/>
+      </view>
+      <view>
+        <input placeholder="正文内容" name="content"/>
+      </view>
+    </form>
   </view>

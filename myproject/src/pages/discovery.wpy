@@ -133,24 +133,26 @@
         </view>
       </view>
     </scroll-view>
-    <view class="grayline" @tap="content">
-      <view class="userinfo">
-        <image class="usericon" src="{{icon}}"/>
-        <view class="username">10K</view>
-      </view>
-      <view style="display: flex;">
-        <view class="content">
-          <view class="title">时间告诉你，毕业一年后，真的有比一纸文凭更重要的东西</view>
-          <view class="article">01 在我小的时候，熬夜还是一件不常见事情。那个时候身边的人的作息都十分有规律，有没有蓄意教唆人，在还不起钱的时候去像亲人朋友借钱。</view>
+    <view wx:for="{{value}}" wx:key="index">
+      <view class="grayline" @tap="content" id="{{index}}">
+        <view class="userinfo">
+          <image class="usericon" src="{{avatarUrl}}"/>
+          <view class="username">{{nickName}}</view>
         </view>
-        <image class="pic" src="{{pic}}"/>
-      </view>
-      <view>
-        <view class="like">
-          <image class="comment" src="{{like}}"/>
-          <view style="margin-right: 0.5rem">1.5W</view>
-          <image class="comment" src="{{comment}}"/>
-          <view>10W</view>
+        <view style="display: flex;">
+          <view class="content">
+            <view class="title">{{item.value.title}}</view>
+            <view class="article">{{item.value.content}}</view>
+          </view>
+          <image class="pic" src="{{pic}}"/>
+        </view>
+        <view>
+          <view class="like">
+            <image class="comment" src="{{like}}"/>
+            <view style="margin-right: 0.5rem">1.5W</view>
+            <image class="comment" src="{{comment}}"/>
+            <view>10W</view>
+          </view>
         </view>
       </view>
     </view>
@@ -184,7 +186,10 @@ export default class Discovery extends wepy.page {
     icon: '../image/add.png',
     pic: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508994773906&di=00b92ac2b264a4e6d0443e9083a2e1c1&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F00e93901213fb80e8da22b173fd12f2eb83894fb.jpg',
     comment: '../image/comment2.png',
-    like: '../image/like2.png'
+    like: '../image/like2.png',
+    value: null,
+    avatarUrl: '',
+    nickName: ''
   }
   methods = {
     serch() {
@@ -192,14 +197,18 @@ export default class Discovery extends wepy.page {
         url: './serch'
       })
     },
-    content() {
+    content(e) {
+      let self = this
+      let item = self.value[e.currentTarget.id]
+      // console.log(item)
       wepy.navigateTo({
-        url: './content'
+        url: `./content?title=${item.value.title}&content=${item.value.content}`
       })
     },
     select(e) {
       let self = this
       let item = self.content[e.currentTarget.id]
+      // console.log(content)
       wepy.navigateTo({
         url: `./select?usericon=${item.usericon}&username=${item.username}`
       })
@@ -207,8 +216,15 @@ export default class Discovery extends wepy.page {
   }
   onLoad() {
     let self = this
+    self.avatarUrl = wepy.getStorageSync('avatarUrl')
+    self.nickName = wepy.getStorageSync('nickName')
+  }
+  onShow() {
+    let self = this
     self.content = content
-    console.log(self.content)
+    // console.log(self.content)
+    self.value = wepy.getStorageSync('article')
+    // console.log(self.value)
   }
 }
 </script>

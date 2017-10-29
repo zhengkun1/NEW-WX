@@ -19,44 +19,38 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Select = function (_wepy$page) {
-  _inherits(Select, _wepy$page);
+var Article = function (_wepy$page) {
+  _inherits(Article, _wepy$page);
 
-  function Select() {
+  function Article() {
     var _ref;
 
     var _temp, _this, _ret;
 
-    _classCallCheck(this, Select);
+    _classCallCheck(this, Article);
 
     for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Select.__proto__ || Object.getPrototypeOf(Select)).call.apply(_ref, [this].concat(args))), _this), _this.config = {}, _this.data = {
-      username: '',
-      usericon: '',
-      title: '你好',
-      read: '1111',
-      comment: '139',
-      pic: '../image/comment.png'
-
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Article.__proto__ || Object.getPrototypeOf(Article)).call.apply(_ref, [this].concat(args))), _this), _this.config = {}, _this.data = {
+      title: ''
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
-  _createClass(Select, [{
+  _createClass(Article, [{
     key: 'onLoad',
     value: function onLoad(data) {
       var self = this;
-      self.usericon = data.usericon;
-      self.username = data.username;
+      self.title = data.title;
+      console.log(self.title);
     }
   }]);
 
-  return Select;
+  return Article;
 }(_wepy2.default.page);
 
 
-Page(require('./../npm/wepy/lib/wepy.js').default.$createPage(Select , 'pages/select'));
+Page(require('./../npm/wepy/lib/wepy.js').default.$createPage(Article , 'pages/article'));
 
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNlbGVjdC5qcyJdLCJuYW1lcyI6WyJTZWxlY3QiLCJjb25maWciLCJkYXRhIiwidXNlcm5hbWUiLCJ1c2VyaWNvbiIsInRpdGxlIiwicmVhZCIsImNvbW1lbnQiLCJwaWMiLCJzZWxmIiwicGFnZSJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7O0FBQ0E7Ozs7Ozs7Ozs7OztJQUNxQkEsTTs7Ozs7Ozs7Ozs7Ozs7c0xBQ25CQyxNLEdBQVMsRSxRQUVUQyxJLEdBQU87QUFDTEMsZ0JBQVUsRUFETDtBQUVMQyxnQkFBVSxFQUZMO0FBR0xDLGFBQU8sSUFIRjtBQUlMQyxZQUFNLE1BSkQ7QUFLTEMsZUFBUyxLQUxKO0FBTUxDLFdBQUs7O0FBTkEsSzs7Ozs7MkJBU0FOLEksRUFBTTtBQUNYLFVBQUlPLE9BQU8sSUFBWDtBQUNBQSxXQUFLTCxRQUFMLEdBQWdCRixLQUFLRSxRQUFyQjtBQUNBSyxXQUFLTixRQUFMLEdBQWdCRCxLQUFLQyxRQUFyQjtBQUNEOzs7O0VBaEJpQyxlQUFLTyxJOztrQkFBcEJWLE0iLCJmaWxlIjoic2VsZWN0LmpzIiwic291cmNlc0NvbnRlbnQiOlsiXG5pbXBvcnQgd2VweSBmcm9tICd3ZXB5J1xuZXhwb3J0IGRlZmF1bHQgY2xhc3MgU2VsZWN0IGV4dGVuZHMgd2VweS5wYWdlIHtcbiAgY29uZmlnID0ge1xuICB9XG4gIGRhdGEgPSB7XG4gICAgdXNlcm5hbWU6ICcnLFxuICAgIHVzZXJpY29uOiAnJyxcbiAgICB0aXRsZTogJ+S9oOWlvScsXG4gICAgcmVhZDogJzExMTEnLFxuICAgIGNvbW1lbnQ6ICcxMzknLFxuICAgIHBpYzogJy4uL2ltYWdlL2NvbW1lbnQucG5nJ1xuXG4gIH1cbiAgb25Mb2FkKGRhdGEpIHtcbiAgICBsZXQgc2VsZiA9IHRoaXNcbiAgICBzZWxmLnVzZXJpY29uID0gZGF0YS51c2VyaWNvblxuICAgIHNlbGYudXNlcm5hbWUgPSBkYXRhLnVzZXJuYW1lXG4gIH1cbn1cbiJdfQ==
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFydGljbGUuanMiXSwibmFtZXMiOlsiQXJ0aWNsZSIsImNvbmZpZyIsImRhdGEiLCJ0aXRsZSIsInNlbGYiLCJjb25zb2xlIiwibG9nIiwicGFnZSJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7O0FBQ0E7Ozs7Ozs7Ozs7OztJQUNxQkEsTzs7Ozs7Ozs7Ozs7Ozs7d0xBQ25CQyxNLEdBQVMsRSxRQUVUQyxJLEdBQU87QUFDTEMsYUFBTztBQURGLEs7Ozs7OzJCQUdBRCxJLEVBQU07QUFDWCxVQUFJRSxPQUFPLElBQVg7QUFDQUEsV0FBS0QsS0FBTCxHQUFhRCxLQUFLQyxLQUFsQjtBQUNBRSxjQUFRQyxHQUFSLENBQVlGLEtBQUtELEtBQWpCO0FBQ0Q7Ozs7RUFWa0MsZUFBS0ksSTs7a0JBQXJCUCxPIiwiZmlsZSI6ImFydGljbGUuanMiLCJzb3VyY2VzQ29udGVudCI6WyJcbmltcG9ydCB3ZXB5IGZyb20gJ3dlcHknXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBBcnRpY2xlIGV4dGVuZHMgd2VweS5wYWdlIHtcbiAgY29uZmlnID0ge1xuICB9XG4gIGRhdGEgPSB7XG4gICAgdGl0bGU6ICcnXG4gIH1cbiAgb25Mb2FkKGRhdGEpIHtcbiAgICBsZXQgc2VsZiA9IHRoaXNcbiAgICBzZWxmLnRpdGxlID0gZGF0YS50aXRsZVxuICAgIGNvbnNvbGUubG9nKHNlbGYudGl0bGUpXG4gIH1cbn1cbiJdfQ==

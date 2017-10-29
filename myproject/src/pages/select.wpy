@@ -1,10 +1,54 @@
 <style>
-
+.userinfo {
+  display: flex;
+  border-bottom: 1px solid whitesmoke;
+  margin: 0.5rem
+}
+.user {
+  width: 80%;
+}
+.usericon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-right: 0.5rem;
+}
+.username {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pic {
+  /* flex: 5; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon {
+  height: 4rem;
+  width: 4rem;
+}
 </style>
 <template>
 <view>
-  <view>{{username}}</view>
-  <image src="{{usericon}}"/>
+  <view class="userinfo">
+    <view class="user">
+      <view style="display: flex; margin-bottom: 0.5rem;">
+        <image class="usericon" src="{{usericon}}"/>
+        <view class="username">{{username}}</view>
+      </view>
+      <view style="margin-bottom:0.5rem">{{title}}</view>
+      <view style="display: flex; margin-bottom: 0.5rem; font-size: 0.6rem; color: #888888;">
+        <view style="margin-right: 0.5rem;">阅读{{read}}</view>
+        <view>评论{{comment}}</view>
+      </view>
+    </view>
+    <view class="pic">
+      <image class="icon" src="{{pic}}"/>
+    </view>
+  </view>
 </view>
 </template>
 <script>
@@ -14,7 +58,11 @@ export default class Select extends wepy.page {
   }
   data = {
     username: '',
-    usericon: ''
+    usericon: '',
+    title: '你好',
+    read: '1111',
+    comment: '139',
+    pic: '../image/comment.png'
 
   }
   onLoad(data) {

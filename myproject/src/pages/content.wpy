@@ -72,15 +72,25 @@
   align-items: center;
   height: 1rem;
   width: 1rem;
-} 
+}
+.commentarea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0rem;
+  /* border-bottom: 1px dotted gray; */
+  background-color: whitesmoke;
+  color: brown
+  
+}
 </style>
 <template>
 <view>
-  <view class="title">title</view>
+  <view class="title">{{title}}</view>
   <view class="userinfo">
     <view class="icon">
-      <image class="usericon" src="{{icon}}"/>
-      <view class="username">username</view>
+      <image class="usericon" src="{{avatarUrl}}"/>
+      <view class="username">{{nickName}}</view>
     </view>
     <view>
       <view class="attention" @tap="attention">{{a}}</view>
@@ -88,6 +98,8 @@
       <view class="attention" wx:else></view>
     </view>
   </view>
+  <view>{{content}}</view>
+  <view class="commentarea">评论区</view>
   <view>
     <view wx:for="{{value}}" wx:key="index" class="grayline">
       <view style="display: flex;">
@@ -101,16 +113,18 @@
             <view>2017-10-28</view>
           </view>
         </view>
-        <image class="likethis" src="{{likethis}}"></image>
+        <view style="height: 2rem; width: 2rem; display: flex; justify-content: centet; align-items: center;">
+          <image class="likethis" src="{{likethis}}"></image>
+        </view>
       </view>
       <view>
-        <view style="margin-bottom: 0.5rem;">{{item.value.input}}</view>
+        <view style="margin-bottom: 0.5rem; font-size: 0.8rem">{{item.value.input}}</view>
       </view>
     </view>
   </view>
   <view class="collect">
-    <form bindsubmit="formSubmit">
-      <input class="input" placeholder="写下你的评论" name="input"/>
+    <form bindsubmit="formSubmit" style="display: flex; flex-direction: row">
+      <input value="{{input}}" confirm-type="{{confirmtype}}" class="input" placeholder="写下你的评论" name="input"/>
       <button class="button" formType="submit">发送</button>
     </form>
     <image class="comment" src="{{comment}}"/>
@@ -132,11 +146,14 @@ export default class Content extends wepy.page {
     a: '关注',
     comment1: '',
     arr: [],
-    value: '',
+    value: [],
     avatarUrl: '',
     nickName: '',
-    likethis: '../image/likethis.png'
-
+    likethis: '../image/likethis.png',
+    input: '',
+    confirmtype: 'send',
+    title: '',
+    content: ''
   }
   methods = {
     attention() {
@@ -149,33 +166,55 @@ export default class Content extends wepy.page {
       }
     },
     formSubmit(e) {
-      console.log('form发生了submit事件，携带数据为：', e.detail.value)
-      // let self = this
-      try {
-        // let value = e.detail.value
-        let array = wepy.getStorageSync('arr')
-        if (array) {
-          array.push({
-            value: e.detail.value
-          })
-          wepy.setStorageSync('arr', array)
-        } else {
-          let arr = [
-            {
+      let self = this
+      // console.log('form发生了submit事件，携带数据为：', e.detail.value)
+      if (e.detail.value.input !== '') {
+        try {
+          // let value = e.detail.value
+          let array = wepy.getStorageSync('arr')
+          if (array) {
+            array.push({
               value: e.detail.value
-            }
-          ]
-          wepy.setStorageSync('arr', arr)
+            })
+            wepy.setStorageSync('arr', array)
+          } else {
+            let arr = [
+              {
+                value: e.detail.value
+              }
+            ]
+            wepy.setStorageSync('arr', arr)
+          }
+          self.setData({
+            input: ''
+          })
+        } catch (e) {
         }
-      } catch (e) {
+      } else {
       }
+      let value = self.value
+      if (!value) {
+        value = []
+      }
+      value.push({
+        value: {
+          input: e.detail.value.input
+        }
+      })
+      self.value = value
     }
+  }
+  onLoad(data) {
+    let self = this
+    self.title = data.title
+    self.content = data.content
+    console.log(self.value)
   }
   onShow() {
     let self = this
     try {
       self.value = wepy.getStorageSync('arr')
-      console.log(self.value)
+      // console.log(self.value)
       self.avatarUrl = wepy.getStorageSync('avatarUrl')
       self.nickName = wepy.getStorageSync('nickName')
     } catch (e) {

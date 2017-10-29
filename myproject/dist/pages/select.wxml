@@ -1,5 +1,19 @@
 
 <view>
-  <view>{{username}}</view>
-  <image src="{{usericon}}"/>
+  <view class="userinfo">
+    <view class="user">
+      <view style="display: flex; margin-bottom: 0.5rem;">
+        <image class="usericon" src="{{usericon}}"/>
+        <view class="username">{{username}}</view>
+      </view>
+      <view style="margin-bottom:0.5rem">{{title}}</view>
+      <view style="display: flex; margin-bottom: 0.5rem; font-size: 0.6rem; color: #888888;">
+        <view style="margin-right: 0.5rem;">阅读{{read}}</view>
+        <view>评论{{comment}}</view>
+      </view>
+    </view>
+    <view class="pic">
+      <image class="icon" src="{{pic}}"/>
+    </view>
+  </view>
 </view>

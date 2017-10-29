@@ -1,2 +1,32 @@
 
-
+.userinfo {
+  display: flex;
+  border-bottom: 1px solid whitesmoke;
+  margin: 0.5rem
+}
+.user {
+  width: 80%;
+}
+.usericon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-right: 0.5rem;
+}
+.username {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pic {
+  /* flex: 5; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon {
+  height: 4rem;
+  width: 4rem;
+}

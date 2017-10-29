@@ -28,7 +28,7 @@
   height: 1rem;
   width: 100%;
   border-bottom: 1px solid whitesmoke;
-  background-color: gray
+  background-color: whitesmoke
 }
 .src {
   height: 1rem;

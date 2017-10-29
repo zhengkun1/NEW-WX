@@ -33,12 +33,14 @@
     <view class="add">
       <image class="addicon" src="{{add}}" @tap="addarticle"/>
     </view>
-    <view class="content">
-      <view class="date">2017-10-27 15:13</view>
-      <view class="title">时间告诉你，毕业后，真的有比一直文凭更重要的东西</view>
-      <view class="like">
-        <view class="date">评论0</view>
-        <view class="date">喜欢0</view>
+    <view wx:for="{{value}}" wx:key="index" id="{{index}}" @tap="article">
+      <view class="content">
+        <view class="date">2017-10-27 15:13</view>
+        <view class="title">{{item.value.title}}</view>
+        <view class="like">
+          <view class="date">评论0</view>
+          <view class="date">喜欢0</view>
+        </view>
       </view>
     </view>
   </view>
@@ -50,14 +52,27 @@ export default class Open extends wepy.page {
     navigationBarTitleText: '公开文章'
   }
   data = {
-    add: '../image/add.png'
+    add: '../image/add.png',
+    value: []
   }
   methods = {
     addarticle() {
       wepy.navigateTo({
         url: './add'
       })
+    },
+    article(e) {
+      let self = this
+      let item = self.value[e.currentTarget.id]
+      wepy.navigateTo({
+        url: `./content?title=${item.title}`
+      })
     }
+  }
+  onShow(data) {
+    let self = this
+    self.value = wepy.getStorageSync('article')
+    console.log(self.value)
   }
 }
 </script>

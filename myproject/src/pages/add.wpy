@@ -14,15 +14,17 @@
 </style>
 <template>
   <view>
-    <view class="piblish">
-      <view class="fabu">发布</view>
-    </view>
-    <view class="addtitle">
-      <input placeholder="添加标题"/>
-    </view>
-    <view>
-      <input placeholder="正文内容"/>
-    </view>
+    <form bindsubmit="formSubmit">
+      <view class="piblish">
+        <button class="fabu" type="primary" formType="submit">发布</button>
+      </view>
+      <view class="addtitle">
+        <input placeholder="添加标题" name="title"/>
+      </view>
+      <view>
+        <input placeholder="正文内容" name="content"/>
+      </view>
+    </form>
   </view>
 </template>
 <script>
@@ -30,6 +32,38 @@ import wepy from 'wepy'
 export default class Attention extends wepy.page {
   config = {
     navigationBarTitleText: '写文章'
+  }
+  data = {
+  }
+  methods = {
+    formSubmit(e) {
+      console.log('formsubmit 携带内容为： ', e.detail.value)
+      if (e.detail.value !== '') {
+        try {
+          let article = wepy.getStorageSync('article')
+          if (article) {
+            article.push({
+              value: e.detail.value
+            })
+            wepy.setStorageSync('article', article)
+          } else {
+            let article = [
+              {
+                value: e.detail.value
+              }
+            ]
+            wepy.setStorageSync('article', article)
+          }
+        } catch (e) {
+        }
+      } else {
+      }
+      wepy.navigateBack({
+        delta: 1
+      })
+    }
+  }
+  onLoad() {
   }
 }
 </script>
