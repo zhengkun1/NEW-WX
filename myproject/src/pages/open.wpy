@@ -65,7 +65,7 @@ export default class Open extends wepy.page {
       let self = this
       let item = self.value[e.currentTarget.id]
       wepy.navigateTo({
-        url: `./content?title=${item.title}`
+        url: `./content?title=${item.value.title}&content=${item.value.content}`
       })
     }
   }

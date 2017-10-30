@@ -32,7 +32,6 @@
 }
 .scroll {
   display: flex;
-  flex-direction: row;
 }
 .scrollname {
   display: flex;

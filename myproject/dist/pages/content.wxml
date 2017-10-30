@@ -32,16 +32,17 @@
         </view>
       </view>
       <view>
-        <view style="margin-bottom: 0.5rem; font-size: 0.8rem">{{item.value.input}}</view>
+        <view style="margin-bottom: 0.5rem; font-size: 0.8rem; work-break: break-all;">{{item.value.input}}</view>
       </view>
     </view>
   </view>
+  <view style="height: 1.5rem; width: 100%;"/>
   <view class="collect">
-    <form bindsubmit="formSubmit" style="display: flex; flex-direction: row">
-      <input value="{{input}}" confirm-type="{{confirmtype}}" class="input" placeholder="写下你的评论" name="input"/>
-      <button class="button" formType="submit">发送</button>
+    <form bindsubmit="formSubmit">
+      <view style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+        <input value="{{input}}" confirm-type="{{confirmtype}}" class="input" placeholder="写下你的评论" name="input"/>
+        <button class="button" formType="submit" id="{{index}}">发送</button>
+      </view>
     </form>
-    <image class="comment" src="{{comment}}"/>
-    <image class="comment" src="{{collect}}"/>
   </view>
 </view>

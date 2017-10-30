@@ -8,21 +8,34 @@
 .fabu {
   display: flex;
   flex-direction: row-reverse;
-  color:brown;
+  color: #330000;
   font-size: 1rem;
+  height: 1.5rem;
+  width: 3rem;
+  font-size: 0.6rem;
+  background-color: #ffffff;
+}
+.textarea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.1rem solid whitesmoke
+}
+.publish {
+  
 }
 </style>
 <template>
   <view>
     <form bindsubmit="formSubmit">
-      <view class="piblish">
-        <button class="fabu" type="primary" formType="submit">发布</button>
-      </view>
       <view class="addtitle">
         <input placeholder="添加标题" name="title"/>
       </view>
-      <view>
-        <input placeholder="正文内容" name="content"/>
+      <view class="textarea">
+        <textarea placeholder="正文内容" name="content"/>
+      </view>
+      <view class="publish">
+        <button class="fabu" formType="submit">发布</button>
       </view>
     </form>
   </view>

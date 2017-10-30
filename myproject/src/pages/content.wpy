@@ -42,19 +42,23 @@
   position: fixed;
   bottom: 0;
   display: flex;
+  height: 2.5rem;
   width: 100%;
   border-top: 1px solid whitesmoke;
   justify-content: center;
   align-items: center;
+  background-color: white
 }
 .button {
-  height: 1rem;
-  width: 2.5rem;
-  font-size: 0.5rem
+  height: 1.5rem;
+  width: 4rem;
+  font-size: 0.8rem
 }
 .avatarUrl {
   height: 2rem;
   width: 2rem;
+  border: 1px solid whitesmoke;
+  border-radius: 50%;
 }
 .nickname {
   display: flex;
@@ -118,17 +122,18 @@
         </view>
       </view>
       <view>
-        <view style="margin-bottom: 0.5rem; font-size: 0.8rem">{{item.value.input}}</view>
+        <view style="margin-bottom: 0.5rem; font-size: 0.8rem; work-break: break-all;">{{item.value.input}}</view>
       </view>
     </view>
   </view>
+  <view style="height: 1.5rem; width: 100%;"></view>
   <view class="collect">
-    <form bindsubmit="formSubmit" style="display: flex; flex-direction: row">
-      <input value="{{input}}" confirm-type="{{confirmtype}}" class="input" placeholder="写下你的评论" name="input"/>
-      <button class="button" formType="submit">发送</button>
+    <form bindsubmit="formSubmit">
+      <view style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+        <input value="{{input}}" confirm-type="{{confirmtype}}" class="input" placeholder="写下你的评论" name="input"/>
+        <button class="button" formType="submit" id="{{index}}">发送</button>
+      </view>
     </form>
-    <image class="comment" src="{{comment}}"/>
-    <image class="comment" src="{{collect}}"/>
   </view>
 </view>
 </template>
@@ -188,20 +193,20 @@ export default class Content extends wepy.page {
           self.setData({
             input: ''
           })
+          let value = self.value
+          if (!value) {
+            value = []
+          }
+          value.push({
+            value: {
+              input: e.detail.value.input
+            }
+          })
+          self.value = value
         } catch (e) {
         }
       } else {
       }
-      let value = self.value
-      if (!value) {
-        value = []
-      }
-      value.push({
-        value: {
-          input: e.detail.value.input
-        }
-      })
-      self.value = value
     }
   }
   onLoad(data) {
@@ -214,7 +219,7 @@ export default class Content extends wepy.page {
     let self = this
     try {
       self.value = wepy.getStorageSync('arr')
-      // console.log(self.value)
+      console.log(self.value)
       self.avatarUrl = wepy.getStorageSync('avatarUrl')
       self.nickName = wepy.getStorageSync('nickName')
     } catch (e) {
