@@ -1,2 +1,52 @@
 
-
+.null {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin: 3rem 1rem; */
+  color: #888888
+}
+.userinfo {
+  display: flex;
+  flex-direction: row;
+  /* margin: 0.6rem; */
+  align-items: center;
+}
+.usernickname {
+  font-size: 0.8rem;
+  justify-content: center;
+  align-items: center;
+}
+.attentionicon {
+  height: 1.4rem;
+  width: 1.4rem;
+  margin-right: 0.4rem;
+}
+.pic {
+  margin: 0.5rem 0rem;
+}
+.picture {
+  height: 6rem;
+  width: 100%
+}
+.title {
+  margin: 0.4rem 0rem;
+  color: #888888;
+}
+.content {
+  margin: 0.4rem 0rem;
+  font-size: 0.8rem;
+  color: #888888;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.comment {
+  display: flex;
+  flex-direction: row-reverse;
+  color: #888888;
+  font-size: 0.8rem;
+}

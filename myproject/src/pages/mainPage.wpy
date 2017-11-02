@@ -1,14 +1,113 @@
 <style>
-
+.null {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin: 3rem 1rem; */
+  color: #888888
+}
+.userinfo {
+  display: flex;
+  flex-direction: row;
+  /* margin: 0.6rem; */
+  align-items: center;
+}
+.usernickname {
+  font-size: 0.8rem;
+  justify-content: center;
+  align-items: center;
+}
+.attentionicon {
+  height: 1.4rem;
+  width: 1.4rem;
+  margin-right: 0.4rem;
+}
+.pic {
+  margin: 0.5rem 0rem;
+}
+.picture {
+  height: 6rem;
+  width: 100%
+}
+.title {
+  margin: 0.4rem 0rem;
+  color: #888888;
+}
+.content {
+  margin: 0.4rem 0rem;
+  font-size: 0.8rem;
+  color: #888888;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.comment {
+  display: flex;
+  flex-direction: row-reverse;
+  color: #888888;
+  font-size: 0.8rem;
+}
 </style>
 <template>
-
+<view>
+  <view wx:if="{{text}}">
+    <view style="margin: 0.6rem;">
+      <view class="userinfo">
+        <image class="attentionicon" src="{{attentionicon}}"/>
+        <view class="usernickname">{{usernickName}}喜欢了文章</view>
+      </view>
+      <view class="pic">
+        <image class="picture" src="{{pic}}"/>
+      </view>
+      <view class="title">{{title}}</view>
+      <view class="content">{{content}}</view>
+      <view class="comment">{{comment}}评论·{{like}}喜欢</view>
+    </view>
+    <view style="height: 1px; width: 100%; background-color: whitesmoke;"></view>
+  </view>
+  <view wx:else>
+    <view class="null">还没有你关注的人，快去关注吧！</view>
+  </view>
+</view>
 </template>
 <script>
 import wepy from 'wepy'
 export default class Discovery extends wepy.page {
   config = {
     navigationBarTitleText: '我的'
+  }
+  data = {
+    text: '',
+    attentionicon: '../image/add.png',
+    usernickName: 'USERNAME',
+    pic: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1509609778521&di=8619809c29700c09d707aaccb895f976&imgtype=0&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F15%2F14%2F91%2F04p58PICmUA_1024.jpg',
+    title: '标题',
+    content: '这个时代和，宛若撒种、耕耘与收获，土地从不辜负弄人，生活也不会辜负任何个体。真抱歉！这个公平的时代何曾强暴了你',
+    comment: '333',
+    like: '333'
+  }
+  onShow() {
+    let self = this
+    wepy.request({
+      url: 'http://127.0.0.1:7001/mainpage',
+      method: 'POST',
+      data: {
+        usernickName: self.usernickName,
+        usericon: self.usericon,
+        title: self.title,
+        article: self.article
+      },
+      success: function(res) {
+        console.log(res.data)
+        self.text = res.data
+        self.setData({
+          text: res.data
+        })
+      }
+    })
   }
 }
 </script>

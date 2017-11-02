@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size:0.8rem;
+  font-size:0.6rem;
   background-color: white
 }
 .border {
@@ -219,6 +219,13 @@ export default class Discovery extends wepy.page {
     let self = this
     self.content = content
     // console.log(self.content)
+    wepy.request({
+      url: 'http://127.0.0.1.7001:/getall',
+      method: 'POST',
+      data: {
+        title: self.
+      }
+    })
   }
 }
 </script>

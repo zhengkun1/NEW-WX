@@ -1,0 +1,21 @@
+
+<view>
+  <view  wx:if="{{text}}">
+    <view style="margin: 0.6rem;">
+      <view class="userinfo">
+        <image class="attentionicon" src="{{attentionicon}}"/>
+        <view class="usernickname">{{usernickName}}喜欢了文章</view>
+      </view>
+      <view class="pic">
+        <image class="picture" src="{{pic}}"/>
+      </view>
+      <view class="title">{{title}}</view>
+      <view class="content">{{content}}</view>
+      <view class="comment">{{comment}}评论·{{like}}喜欢</view>
+    </view>
+    <view style="height: 1px; width: 100%; background-color: whitesmoke;"/>
+  </view>
+  <view  wx:else>
+    <view class="null">还没有你关注的人，快去关注吧！</view>
+  </view>
+</view>
