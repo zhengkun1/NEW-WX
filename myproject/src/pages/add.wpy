@@ -47,36 +47,59 @@ export default class Attention extends wepy.page {
     navigationBarTitleText: '写文章'
   }
   data = {
+    icon: '',
+    nickName: ''
   }
   methods = {
     formSubmit(e) {
+      let self = this
       console.log('formsubmit 携带内容为： ', e.detail.value)
-      if (e.detail.value !== '') {
-        try {
-          let article = wepy.getStorageSync('article')
-          if (article) {
-            article.push({
-              value: e.detail.value
-            })
-            wepy.setStorageSync('article', article)
-          } else {
-            let article = [
-              {
-                value: e.detail.value
-              }
-            ]
-            wepy.setStorageSync('article', article)
-          }
-        } catch (e) {
-        }
-      } else {
-      }
+      // if (e.detail.value !== '') {
+      //   try {
+      //     let article = wepy.getStorageSync('article')
+      //     if (article) {
+      //       article.push({
+      //         value: e.detail.value
+      //       })
+      //       wepy.setStorageSync('article', article)
+      //     } else {
+      //       let article = [
+      //         {
+      //           value: e.detail.value
+      //         }
+      //       ]
+      //       wepy.setStorageSync('article', article)
+      //     }
+      //   } catch (e) {
+      //   }
+      // } else {
+      // }
       wepy.navigateBack({
         delta: 1
+      })
+      wepy.request({
+        url: 'http://127.0.0.1:7001/jianshu',
+        method: 'POST',
+        data: {
+          usernickName: self.nickName,
+          useravatarUrl: self.icon,
+          title: e.detail.value.title,
+          article: e.detail.value.content
+        },
+        success: function(res) {
+          console.log(res)
+        }
       })
     }
   }
   onLoad() {
+    let self = this
+    wepy.getUserInfo({
+      success: function(res) {
+        self.icon = res.userInfo.avatarUrl
+        self.nickName = res.userInfo.nickName
+      }
+    })
   }
 }
 </script>

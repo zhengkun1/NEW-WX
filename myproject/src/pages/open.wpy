@@ -33,10 +33,10 @@
     <view class="add">
       <image class="addicon" src="{{add}}" @tap="addarticle"/>
     </view>
-    <view wx:for="{{value}}" wx:key="index" id="{{index}}" @tap="article">
+    <view wx:for="{{text}}" wx:key="index" id="{{index}}" @tap="article">
       <view class="content">
         <view class="date">2017-10-27 15:13</view>
-        <view class="title">{{item.value.title}}</view>
+        <view class="title">{{item.title}}</view>
         <view class="like">
           <view class="date">评论0</view>
           <view class="date">喜欢0</view>
@@ -53,7 +53,10 @@ export default class Open extends wepy.page {
   }
   data = {
     add: '../image/add.png',
-    value: []
+    value: [],
+    icon: '',
+    nickName: '',
+    text: ''
   }
   methods = {
     addarticle() {
@@ -69,10 +72,30 @@ export default class Open extends wepy.page {
       })
     }
   }
+  onLoad() {
+  }
   onShow(data) {
     let self = this
-    self.value = wepy.getStorageSync('article')
-    console.log(self.value)
+    wepy.getUserInfo({
+      success: function(res) {
+        self.icon = res.userInfo.avatarUrl
+        self.nickName = res.userInfo.nickName
+        wepy.request({
+          url: 'http://127.0.0.1:7001/myarticle',
+          method: 'POST',
+          data: {
+            usernickName: self.nickName
+          },
+          success: function(res) {
+            console.log(res.data)
+            self.text = res.data
+            self.setData({
+              text: res.data
+            })
+          }
+        })
+      }
+    })
   }
 }
 </script>

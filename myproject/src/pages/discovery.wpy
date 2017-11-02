@@ -214,16 +214,11 @@ export default class Discovery extends wepy.page {
     }
   }
   onLoad() {
-    let self = this
-    self.avatarUrl = wepy.getStorageSync('avatarUrl')
-    self.nickName = wepy.getStorageSync('nickName')
   }
   onShow() {
     let self = this
     self.content = content
     // console.log(self.content)
-    self.value = wepy.getStorageSync('article')
-    // console.log(self.value)
   }
 }
 </script>
