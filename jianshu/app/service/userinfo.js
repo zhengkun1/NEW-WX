@@ -27,6 +27,18 @@ module.exports = app => {
       }
       return a;
     }
+    * mainpage() {
+      let a;
+      try {
+        a = yield app.mysql.select('user', {
+          where: { id: 100 },
+        });
+      } catch (a) {
+        this.ctx.logger.error(a);
+        return false;
+      }
+      return a;
+    }
   }
   return Test;
 };

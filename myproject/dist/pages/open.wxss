@@ -25,5 +25,11 @@
 }
 .like {
   display: flex;
-
+}
+.null {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  color: #888888;
 }

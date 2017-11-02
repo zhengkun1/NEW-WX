@@ -53,18 +53,18 @@
 </style>
 <template>
 <view>
-  <view wx:if="{{text}}">
-    <view style="margin: 0.6rem;">
+  <view wx:if="{{text.length}}">
+    <view style="margin: 0.6rem;" wx:for="{{text}}" wx:key="index">
       <view class="userinfo">
-        <image class="attentionicon" src="{{attentionicon}}"/>
-        <view class="usernickname">{{usernickName}}喜欢了文章</view>
+        <image class="attentionicon" src="{{item.attentionicon}}"/>
+        <view class="usernickname">{{item.usernickName}}喜欢了文章</view>
       </view>
       <view class="pic">
-        <image class="picture" src="{{pic}}"/>
+        <image class="picture" src="{{item.pic}}"/>
       </view>
-      <view class="title">{{title}}</view>
-      <view class="content">{{content}}</view>
-      <view class="comment">{{comment}}评论·{{like}}喜欢</view>
+      <view class="title">{{item.title}}</view>
+      <view class="content">{{item.content}}</view>
+      <view class="comment">{{item.comment}}评论·{{item.like}}喜欢</view>
     </view>
     <view style="height: 1px; width: 100%; background-color: whitesmoke;"></view>
   </view>
@@ -80,28 +80,15 @@ export default class Discovery extends wepy.page {
     navigationBarTitleText: '我的'
   }
   data = {
-    text: '',
-    attentionicon: '../image/add.png',
-    usernickName: 'USERNAME',
-    pic: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1509609778521&di=8619809c29700c09d707aaccb895f976&imgtype=0&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F15%2F14%2F91%2F04p58PICmUA_1024.jpg',
-    title: '标题',
-    content: '这个时代和，宛若撒种、耕耘与收获，土地从不辜负弄人，生活也不会辜负任何个体。真抱歉！这个公平的时代何曾强暴了你',
-    comment: '333',
-    like: '333'
+    text: ''
   }
-  onShow() {
+  onLoad() {
     let self = this
     wepy.request({
       url: 'http://127.0.0.1:7001/mainpage',
       method: 'POST',
-      data: {
-        usernickName: self.usernickName,
-        usericon: self.usericon,
-        title: self.title,
-        article: self.article
-      },
       success: function(res) {
-        console.log(res.data)
+        console.log(res.data, 'aaaaaaaaaaaa')
         self.text = res.data
         self.setData({
           text: res.data

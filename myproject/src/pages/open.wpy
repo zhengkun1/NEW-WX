@@ -25,7 +25,13 @@
 }
 .like {
   display: flex;
-
+}
+.null {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  color: #888888;
 }
 </style>
 <template>
@@ -33,15 +39,20 @@
     <view class="add">
       <image class="addicon" src="{{add}}" @tap="addarticle"/>
     </view>
-    <view wx:for="{{text}}" wx:key="index" id="{{index}}" @tap="article">
-      <view class="content">
-        <view class="date">2017-10-27 15:13</view>
-        <view class="title">{{item.title}}</view>
-        <view class="like">
-          <view class="date">评论0</view>
-          <view class="date">喜欢0</view>
+    <view wx:if="{{text.length}}">
+      <view wx:for="{{text}}" wx:key="index" id="{{index}}" @tap="article">
+        <view class="content">
+          <view class="date">2017-10-27 15:13</view>
+          <view class="title">{{item.title}}</view>
+          <view class="like">
+            <view class="date">评论0</view>
+            <view class="date">喜欢0</view>
+          </view>
         </view>
       </view>
+    </view>
+    <view wx:else>
+      <view class="null">快点点击上边 ➕ 发表你的文章吧！</view>
     </view>
   </view>
 </template>
@@ -74,9 +85,9 @@ export default class Open extends wepy.page {
   }
   onLoad() {
   }
-  onShow(data) {
+  async onShow(data) {
     let self = this
-    wepy.getUserInfo({
+    await wepy.getUserInfo({
       success: function(res) {
         self.icon = res.userInfo.avatarUrl
         self.nickName = res.userInfo.nickName

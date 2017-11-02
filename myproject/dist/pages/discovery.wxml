@@ -19,25 +19,50 @@
         </view>
       </view>
     </scroll-view>
-    <view wx:for="{{value}}" wx:key="index">
+    <view wx:if="{{value}}">
+      <view wx:for="{{value}}" wx:key="index">
+        <view class="grayline" bindtap="content" id="{{index}}">
+          <view class="userinfo">
+            <image class="usericon" src="{{avatarUrl}}"/>
+            <view class="username">{{nickName}}</view>
+          </view>
+          <view style="display: flex;">
+            <view class="content">
+              <view class="title">{{item.value.title}}</view>
+              <view class="article">{{item.value.content}}</view>
+            </view>
+            <image class="pic" src="{{pic}}"/>
+          </view>
+          <view>
+            <view class="like">
+              <image class="comment" src="{{like}}"/>
+              <view style="margin-right: 0.5rem">1.5W</view>
+              <image class="comment" src="{{comment}}"/>
+              <view>10W</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:else>
       <view class="grayline" bindtap="content" id="{{index}}">
         <view class="userinfo">
           <image class="usericon" src="{{avatarUrl}}"/>
-          <view class="username">{{nickName}}</view>
+          <view class="username">用户名</view>
         </view>
         <view style="display: flex;">
           <view class="content">
-            <view class="title">{{item.value.title}}</view>
-            <view class="article">{{item.value.content}}</view>
+            <view class="title">文章标题</view>
+            <view class="article">文章内容</view>
           </view>
           <image class="pic" src="{{pic}}"/>
         </view>
         <view>
           <view class="like">
             <image class="comment" src="{{like}}"/>
-            <view style="margin-right: 0.5rem">1.5W</view>
+            <view style="margin-right: 0.5rem"/>
             <image class="comment" src="{{comment}}"/>
-            <view>10W</view>
+            <view/>
           </view>
         </view>
       </view>

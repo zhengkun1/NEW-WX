@@ -3,14 +3,19 @@
     <view class="add">
       <image class="addicon" src="{{add}}" bindtap="addarticle"/>
     </view>
-    <view  wx:for="{{text}}" wx:key="index" id="{{index}}" bindtap="article">
-      <view class="content">
-        <view class="date">2017-10-27 15:13</view>
-        <view class="title">{{item.title}}</view>
-        <view class="like">
-          <view class="date">评论0</view>
-          <view class="date">喜欢0</view>
+    <view  wx:if="{{text.length}}">
+      <view wx:for="{{text}}" wx:key="index" id="{{index}}" bindtap="article">
+        <view class="content">
+          <view class="date">2017-10-27 15:13</view>
+          <view class="title">{{item.title}}</view>
+          <view class="like">
+            <view class="date">评论0</view>
+            <view class="date">喜欢0</view>
+          </view>
         </view>
       </view>
+    </view>
+    <view  wx:else>
+      <view class="null">快点点击上边 ➕ 发表你的文章吧！</view>
     </view>
   </view>

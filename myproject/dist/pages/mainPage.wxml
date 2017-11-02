@@ -1,17 +1,17 @@
 
 <view>
-  <view  wx:if="{{text}}">
-    <view style="margin: 0.6rem;">
+  <view  wx:if="{{text.length}}">
+    <view style="margin: 0.6rem;" wx:for="{{text}}" wx:key="index">
       <view class="userinfo">
-        <image class="attentionicon" src="{{attentionicon}}"/>
-        <view class="usernickname">{{usernickName}}喜欢了文章</view>
+        <image class="attentionicon" src="{{item.attentionicon}}"/>
+        <view class="usernickname">{{item.usernickName}}喜欢了文章</view>
       </view>
       <view class="pic">
-        <image class="picture" src="{{pic}}"/>
+        <image class="picture" src="{{item.pic}}"/>
       </view>
-      <view class="title">{{title}}</view>
-      <view class="content">{{content}}</view>
-      <view class="comment">{{comment}}评论·{{like}}喜欢</view>
+      <view class="title">{{item.title}}</view>
+      <view class="content">{{item.content}}</view>
+      <view class="comment">{{item.comment}}评论·{{item.like}}喜欢</view>
     </view>
     <view style="height: 1px; width: 100%; background-color: whitesmoke;"/>
   </view>
