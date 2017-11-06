@@ -9,17 +9,18 @@ module.exports = app => {
     * addarticle(res) {
       try {
         yield app.mysql.insert('user', res);
+        yield app.mysql.insert('article', res);
       } catch (b) {
         this.ctx.logger.error(b);
         return false;
       }
       return true;
     }
-    * selectuserinfo(usernickName) {
+    * selectuserinfo(name) {
       let a;
       try {
         a = yield app.mysql.select('user', {
-          where: { usernickName: usernickName.usernickName },
+          where: { usernickName: name.usernickName },
         });
       } catch (a) {
         this.ctx.logger.error(a);
@@ -35,6 +36,38 @@ module.exports = app => {
         });
       } catch (a) {
         this.ctx.logger.error(a);
+        return false;
+      }
+      return a;
+    }
+    * getall() {
+      let a;
+      try {
+        a = yield app.mysql.select('user');
+      } catch (a) {
+        this.ctx.logger.error(a);
+        return false;
+      }
+      return a;
+    }
+    * secret() {
+      let a;
+      try {
+        a = yield app.mysql.select('user', {
+          where: { id: 100 },
+        });
+      } catch (e) {
+        this.ctx.logger.error(e);
+        return false;
+      }
+      return a;
+    }
+    * comment(res) {
+      let a;
+      try {
+        a = yield app.mysql.insert('article', res);
+      } catch (e) {
+        this.ctx.logger.error(e);
         return false;
       }
       return a;

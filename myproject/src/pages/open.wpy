@@ -33,6 +33,12 @@
   margin-top: 1rem;
   color: #888888;
 }
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
 </style>
 <template>
   <view>
@@ -42,11 +48,11 @@
     <view wx:if="{{text.length}}">
       <view wx:for="{{text}}" wx:key="index" id="{{index}}" @tap="article">
         <view class="content">
-          <view class="date">2017-10-27 15:13</view>
+          <view class="date">{{item.create_at}}</view>
           <view class="title">{{item.title}}</view>
           <view class="like">
-            <view class="date">评论0</view>
-            <view class="date">喜欢0</view>
+            <view class="date">评论{{comment}}</view>
+            <view class="date">喜欢{{like}}</view>
           </view>
         </view>
       </view>
@@ -67,7 +73,9 @@ export default class Open extends wepy.page {
     value: [],
     icon: '',
     nickName: '',
-    text: ''
+    text: '',
+    comment: 0,
+    like: 0
   }
   methods = {
     addarticle() {
@@ -77,9 +85,9 @@ export default class Open extends wepy.page {
     },
     article(e) {
       let self = this
-      let item = self.value[e.currentTarget.id]
+      let item = self.text[e.currentTarget.id]
       wepy.navigateTo({
-        url: `./content?title=${item.value.title}&content=${item.value.content}`
+        url: `./content?title=${item.title}&content=${item.article}`
       })
     }
   }

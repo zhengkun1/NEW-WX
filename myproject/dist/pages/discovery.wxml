@@ -19,17 +19,17 @@
         </view>
       </view>
     </scroll-view>
-    <view wx:if="{{value}}">
-      <view wx:for="{{value}}" wx:key="index">
+    <view wx:if="{{text.length}}">
+      <view wx:for="{{text}}" wx:key="index">
         <view class="grayline" bindtap="content" id="{{index}}">
           <view class="userinfo">
-            <image class="usericon" src="{{avatarUrl}}"/>
-            <view class="username">{{nickName}}</view>
+            <image class="usericon" src="{{item.useravatarUrl}}"/>
+            <view class="username">{{item.usernickName}}</view>
           </view>
           <view style="display: flex;">
             <view class="content">
-              <view class="title">{{item.value.title}}</view>
-              <view class="article">{{item.value.content}}</view>
+              <view class="title">{{item.title}}</view>
+              <view class="article">{{item.article}}</view>
             </view>
             <image class="pic" src="{{pic}}"/>
           </view>

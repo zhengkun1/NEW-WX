@@ -1,0 +1,5 @@
+
+  <view>
+    <view  wx:if="{{text}}"/>
+    <view class="null"  wx:else>还没有看过任何文章哦！</view>
+  </view>

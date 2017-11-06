@@ -38,10 +38,17 @@
   font-size: 0.8rem;
   border: 1px solid black;
 }
+.null {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #888888
+}
 </style>
 <template>
   <view>
-    <view class="attention">
+    <view class="attention" wx:if="{{text}}">
       <image class="icon" src="{{icon}}"/>
       <view style="width: 70%;">
         <view class="username">uername</view>
@@ -51,6 +58,7 @@
         <view class="attacted">关注</view>
       </view>
     </view>
+    <view class="null" wx:else>你还没有粉丝，快去发表文章来增加粉丝吧</view>
   </view>
 </template>
 <script>

@@ -147,7 +147,7 @@ export default class Self extends wepy.page {
         url: './mine'
       })
     },
-    myarctile() {
+    myarticles() {
       wepy.navigateTo({
         url: './myarticle'
       })

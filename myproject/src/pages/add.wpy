@@ -87,7 +87,8 @@ export default class Attention extends wepy.page {
           article: e.detail.value.content
         },
         success: function(res) {
-          console.log(res)
+          // console.log(res)
+          console.log(e.detail.value.content, 'art')
         }
       })
     }

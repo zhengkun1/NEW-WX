@@ -1,6 +1,6 @@
 
   <view>
-    <view class="attention">
+    <view class="attention"  wx:if="{{text}}">
       <image class="icon" src="{{icon}}"/>
       <view style="width: 70%;">
         <view class="username">uername</view>
@@ -10,4 +10,5 @@
         <view class="attacted">已关注</view>
       </view>
     </view>
+    <view  wx:else class="null">你还没有关注的人</view>
   </view>

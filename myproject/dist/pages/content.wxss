@@ -85,5 +85,13 @@
   /* border-bottom: 1px dotted gray; */
   background-color: whitesmoke;
   color: brown
-  
+}
+.like {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.like1 {
+  height: 1.5rem;
+  width: 1.5rem;
 }

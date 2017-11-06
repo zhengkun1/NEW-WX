@@ -85,7 +85,15 @@
   /* border-bottom: 1px dotted gray; */
   background-color: whitesmoke;
   color: brown
-  
+}
+.like {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.like1 {
+  height: 1.5rem;
+  width: 1.5rem;
 }
 </style>
 <template>
@@ -103,15 +111,18 @@
     </view>
   </view>
   <view>{{content}}</view>
+  <view class="like">
+    <image class="like1" src="{{b}}" @tap="like"/>
+  </view>
   <view class="commentarea">评论区</view>
   <view>
-    <view wx:for="{{value}}" wx:key="index" class="grayline">
+    <view wx:for="{{text}}" wx:key="index" class="grayline">
       <view style="display: flex;">
         <view>
-          <image class="avatarUrl" src="{{avatarUrl}}"></image>
+          <image class="avatarUrl" src="{{item.avatarurl}}"></image>
         </view>
         <view style="width: 80%;">
-          <view class="nickname">{{nickName}}</view>
+          <view class="nickname">{{item.username}}</view>
           <view style="display: flex; font-size: 0.5rem; color: #888888;">
             <view>1L</view>
             <view>2017-10-28</view>
@@ -122,7 +133,7 @@
         </view>
       </view>
       <view>
-        <view style="margin-bottom: 0.5rem; font-size: 0.8rem; work-break: break-all;">{{item.value.input}}</view>
+        <view style="margin-bottom: 0.5rem; font-size: 0.8rem; work-break: break-all;">{{item.comment}}</view>
       </view>
     </view>
   </view>
@@ -158,7 +169,9 @@ export default class Content extends wepy.page {
     input: '',
     confirmtype: 'send',
     title: '',
-    content: ''
+    content: '',
+    like: false,
+    b: '../image/likedd.png'
   }
   methods = {
     attention() {
@@ -170,42 +183,67 @@ export default class Content extends wepy.page {
         self.a = '关注'
       }
     },
+    like() {
+      let self = this
+      self.like = !self.like
+      if (self.like === true) {
+        self.b = '../image/liked.png'
+      } else {
+        self.b = '../image/likedd.png'
+      }
+    },
     formSubmit(e) {
       let self = this
       // console.log('form发生了submit事件，携带数据为：', e.detail.value)
+      // if (e.detail.value.input !== '') {
+      //   try {
+      //     // let value = e.detail.value
+      //     let array = wepy.getStorageSync('arr')
+      //     if (array) {
+      //       array.push({
+      //         value: e.detail.value
+      //       })
+      //       wepy.setStorageSync('arr', array)
+      //     } else {
+      //       let arr = [
+      //         {
+      //           value: e.detail.value
+      //         }
+      //       ]
+      //       wepy.setStorageSync('arr', arr)
+      //     }
+      //     self.setData({
+      //       input: ''
+      //     })
+      //     let value = self.value
+      //     if (!value) {
+      //       value = []
+      //     }
+      //     value.push({
+      //       value: {
+      //         input: e.detail.value.input
+      //       }
+      //     })
+      //     self.value = value
+      //   } catch (e) {
+      //   }
+      // } else {
+      // }
       if (e.detail.value.input !== '') {
-        try {
-          // let value = e.detail.value
-          let array = wepy.getStorageSync('arr')
-          if (array) {
-            array.push({
-              value: e.detail.value
-            })
-            wepy.setStorageSync('arr', array)
-          } else {
-            let arr = [
-              {
-                value: e.detail.value
-              }
-            ]
-            wepy.setStorageSync('arr', arr)
+        wepy.request({
+          url: 'http://127.0.0.1:7001/comment',
+          method: 'POST',
+          data: {
+            comment: e.detail.value.input,
+            article: self.title,
+            username: self.usernickName,
+            avatarUrl: self.avatarUrl
+          },
+          success: function (res) {
+            console.log(res.data)
+            self.text = res.data
           }
-          self.setData({
-            input: ''
-          })
-          let value = self.value
-          if (!value) {
-            value = []
-          }
-          value.push({
-            value: {
-              input: e.detail.value.input
-            }
-          })
-          self.value = value
-        } catch (e) {
-        }
-      } else {
+        })
       }
     }
   }

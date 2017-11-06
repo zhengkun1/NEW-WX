@@ -1,6 +1,6 @@
 
 <view>
-  <view class="grayline">
+  <view class="grayline"  wx:if="{{text}}">
     <view class="content">
       <view style="display: flex;">
         <view class="icon">10K</view>
@@ -18,4 +18,5 @@
       <image class="pic" src="{{pic}}"/>
     </view>
   </view>
+  <view class="null"  wx:else>还没有你喜欢的文章！</view>
 </view>

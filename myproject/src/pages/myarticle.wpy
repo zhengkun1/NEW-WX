@@ -1,14 +1,44 @@
 <style>
-
+.null {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  color: #888888
+}
 </style>
 <template>
-  
+  <view>
+    <view wx:if="{{text}}"></view>
+    <view class="null" wx:else>还没有你的文集</view>
+  </view>
 </template>
 <script>
 import wepy from 'wepy'
 export default class Myarticle extends wepy.page {
   config = {
     navigationBarTitleText: '我的文集'
+  }
+  data = {
+    text: ''
+  }
+  methods = {
+  }
+  onShow() {
+    let self = this
+    wepy.request({
+      url: '',
+      method: 'POST',
+      data: {
+      },
+      success: function(res) {
+        console.log(res.data)
+        self.text = res.data
+        self.setData({
+          text: res.data
+        })
+      }
+    })
   }
 }
 </script>

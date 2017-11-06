@@ -1,0 +1,5 @@
+
+  <view>
+    <view  wx:if="{{text}}"/>
+    <view class="null"  wx:else>还没有你的专题！！！</view>
+  </view>

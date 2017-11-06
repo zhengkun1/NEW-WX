@@ -13,15 +13,18 @@
     </view>
   </view>
   <view>{{content}}</view>
+  <view class="like">
+    <image class="like1" src="{{b}}" bindtap="like"/>
+  </view>
   <view class="commentarea">评论区</view>
   <view>
-    <view wx:for="{{value}}" wx:key="index" class="grayline">
+    <view wx:for="{{text}}" wx:key="index" class="grayline">
       <view style="display: flex;">
         <view>
-          <image class="avatarUrl" src="{{avatarUrl}}"/>
+          <image class="avatarUrl" src="{{item.avatarurl}}"/>
         </view>
         <view style="width: 80%;">
-          <view class="nickname">{{nickName}}</view>
+          <view class="nickname">{{item.username}}</view>
           <view style="display: flex; font-size: 0.5rem; color: #888888;">
             <view>1L</view>
             <view>2017-10-28</view>
@@ -32,7 +35,7 @@
         </view>
       </view>
       <view>
-        <view style="margin-bottom: 0.5rem; font-size: 0.8rem; work-break: break-all;">{{item.value.input}}</view>
+        <view style="margin-bottom: 0.5rem; font-size: 0.8rem; work-break: break-all;">{{item.comment}}</view>
       </view>
     </view>
   </view>
