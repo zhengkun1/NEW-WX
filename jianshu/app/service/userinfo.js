@@ -8,8 +8,12 @@ module.exports = app => {
   class Test extends app.Service {
     * addarticle(res) {
       try {
+        console.log('[REQ-BODY]:', res);
         yield app.mysql.insert('user', res);
-        yield app.mysql.insert('article', res);
+        const articleBody = {
+          article: res.article,
+        };
+        yield app.mysql.insert('article', articleBody);
       } catch (b) {
         this.ctx.logger.error(b);
         return false;
