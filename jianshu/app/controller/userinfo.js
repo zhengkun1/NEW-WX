@@ -5,6 +5,7 @@ module.exports = app => {
     * addarticle() {
       console.log(this.ctx.request.body, '12111');
       this.ctx.body = yield this.service.userinfo.addarticle(this.ctx.request.body);
+      // this.ctx.body = yield this.service.userinfo.adduser(this.ctx.request.body);
     }
     * selectuserinfo() {
       console.log(this.ctx.request.body);

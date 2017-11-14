@@ -20,8 +20,6 @@ module.exports = app => {
         table.string('useravatarUrl').notNullable().defaultTo('');
         table.string('title').notNullable().defaultTo('');
         table.string('article').notNullable().defaultTo('');
-        table.string('attention').notNullable().defaultTo('');
-        table.string('fans').notNullable().defaultTo('');
         table.timestamp('create_at').defaultTo(knex.fn.now());
         table.charset('utf8');
       });
@@ -32,11 +30,38 @@ module.exports = app => {
     if (article.length === 0) {
       const userSchema = knex.schema.createTableIfNotExists('article', function(table) {
         table.increments();
-        table.string('username').notNullable().defaultTo('');
-        table.string('avatarurl').notNullable().defaultTo('');
         table.string('article').notNullable().defaultTo('');
         table.string('comment').notNullable().defaultTo('');
         table.string('like').notNullable().defaultTo('');
+        table.string('collection').notNullable().defaultTo('');
+        table.integer('give a like').notNullable().defaultTo(0);
+        table.timestamp('create_at').defaultTo(knex.fn.now());
+        table.charset('utf8');
+      });
+
+      yield app.mysql.query(userSchema.toString());
+    }
+    const comment = yield app.mysql.query(knex.schema.hasTable('comment').toString());
+    if (comment.length === 0) {
+      const userSchema = knex.schema.createTableIfNotExists('comment', function(table) {
+        table.increments();
+        table.string('article').notNullable().defaultTo('');
+        table.string('comment').notNullable().defaultTo('');
+        table.string('like').notNullable().defaultTo('');
+        table.string('collection').notNullable().defaultTo('');
+        table.integer('givealike').notNullable().defaultTo('0');
+        table.timestamp('create_at').defaultTo(knex.fn.now());
+        table.charset('utf8');
+      });
+
+      yield app.mysql.query(userSchema.toString());
+    }
+    const attention = yield app.mysql.query(knex.schema.hasTable('attention').toString());
+    if (attention.length === 0) {
+      const userSchema = knex.schema.createTableIfNotExists('attention', function(table) {
+        table.increments();
+        table.string('attention').notNullable().defaultTo('');
+        table.string('beattented').notNullable().defaultTo('');
         table.timestamp('create_at').defaultTo(knex.fn.now());
         table.charset('utf8');
       });
