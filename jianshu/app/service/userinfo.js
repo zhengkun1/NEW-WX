@@ -11,7 +11,8 @@ module.exports = app => {
         console.log('[REQ-BODY]:', res);
         yield app.mysql.insert('user', res);
         const articleBody = {
-          article: res.article,
+          contet: res.article,
+          article: res.title,
         };
         yield app.mysql.insert('article', articleBody);
       } catch (b) {
